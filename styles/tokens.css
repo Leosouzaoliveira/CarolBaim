@@ -1,0 +1,94 @@
+/* ==========================================================================
+   Clínica Carolina Baim — Material Design 3 (Material You) Design Tokens
+   Tonal Palette derived from the clinic's physical identity:
+   Warm Alabaster, Rosé/Terracotta Monogram, Botanical Sage, Natural Oak
+   ========================================================================== */
+
+:root,
+html {
+  color-scheme: light;
+
+  /* Typography Families */
+  --md-ref-typeface-brand: 'Cormorant Garamond', Georgia, serif;
+  --md-ref-typeface-plain: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+
+  /* M3 Light Theme Color Roles (Seed: Warm Rosé #8D4B52 + Botanical Sage #4A6552) */
+  --md-sys-color-primary: #8C4A52;
+  --md-sys-color-on-primary: #FFFFFF;
+  --md-sys-color-primary-container: #FFD9DC;
+  --md-sys-color-on-primary-container: #3A0812;
+
+  --md-sys-color-secondary: #4B6553;
+  --md-sys-color-on-secondary: #FFFFFF;
+  --md-sys-color-secondary-container: #CDEBD4;
+  --md-sys-color-on-secondary-container: #082013;
+
+  --md-sys-color-tertiary: #7B5836;
+  --md-sys-color-on-tertiary: #FFFFFF;
+  --md-sys-color-tertiary-container: #FFDCBE;
+  --md-sys-color-on-tertiary-container: #2D1600;
+
+  --md-sys-color-error: #BA1A1A;
+  --md-sys-color-on-error: #FFFFFF;
+  --md-sys-color-error-container: #FFDAD6;
+  --md-sys-color-on-error-container: #410002;
+
+  /* M3 Neutral Surfaces — Quiet Luxury Alabaster */
+  --md-sys-color-background: #FCF8F7;
+  --md-sys-color-on-background: #201A1A;
+  --md-sys-color-surface: #FCF8F7;
+  --md-sys-color-on-surface: #201A1A;
+  --md-sys-color-surface-variant: #F3DDE0;
+  --md-sys-color-on-surface-variant: #524344;
+
+  --md-sys-color-surface-container-lowest: #FFFFFF;
+  --md-sys-color-surface-container-low: #F8F1EE;
+  --md-sys-color-surface-container: #F2E9E6;
+  --md-sys-color-surface-container-high: #ECE1DD;
+  --md-sys-color-surface-container-highest: #E5D9D4;
+
+  --md-sys-color-outline: #847374;
+  --md-sys-color-outline-variant: #D6C2C4;
+
+  --md-sys-color-inverse-surface: #362F2F;
+  --md-sys-color-inverse-on-surface: #FBEEED;
+  --md-sys-color-inverse-primary: #FFB2B9;
+  --md-sys-color-scrim: rgba(20, 14, 15, 0.48);
+
+  /* Editorial Accent Tokens (GTC Quiet Luxury bridge) */
+  --cb-accent-navy: #142430;
+  --cb-accent-gold: #B08D6A;
+  --cb-accent-gold-soft: rgba(176, 141, 106, 0.16);
+  --cb-whatsapp: #1D7A4E;
+  --cb-whatsapp-on: #FFFFFF;
+  --cb-star: #D99B26;
+
+  /* M3 Elevation Shadows (Subtle tonal + ambient) */
+  --md-sys-elevation-1: 0 1px 3px 1px rgba(32, 26, 26, 0.06), 0 1px 2px 0 rgba(32, 26, 26, 0.08);
+  --md-sys-elevation-2: 0 2px 6px 2px rgba(32, 26, 26, 0.07), 0 1px 2px 0 rgba(32, 26, 26, 0.10);
+  --md-sys-elevation-3: 0 6px 16px 4px rgba(32, 26, 26, 0.08), 0 2px 6px 0 rgba(32, 26, 26, 0.08);
+
+  /* M3 Shape Scale */
+  --md-sys-shape-corner-small: 8px;
+  --md-sys-shape-corner-medium: 12px;
+  --md-sys-shape-corner-large: 16px;
+  --md-sys-shape-corner-extra-large: 28px;
+  --md-sys-shape-corner-full: 9999px;
+
+  /* M3 State Layer Opacities */
+  --md-sys-state-hover-opacity: 0.08;
+  --md-sys-state-focus-opacity: 0.12;
+  --md-sys-state-pressed-opacity: 0.12;
+
+  /* M3 Motion System */
+  --md-sys-motion-easing-emphasized: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-sys-motion-easing-emphasized-decelerate: cubic-bezier(0.05, 0.7, 0.1, 1.0);
+  --md-sys-motion-easing-standard: cubic-bezier(0.2, 0.0, 0, 1.0);
+  --md-sys-motion-duration-short: 180ms;
+  --md-sys-motion-duration-medium: 320ms;
+  --md-sys-motion-duration-long: 500ms;
+
+  /* Layout Spacing */
+  --cb-container-max: 1240px;
+  --cb-gutter: clamp(16px, 3vw, 32px);
+}

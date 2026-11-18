@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="color-scheme" content="light" />
+  <meta name="supported-color-schemes" content="light" />
+  <meta name="theme-color" content="#FCF8F7" />
+  <title>Clínica Carolina Baim | Biomedicina Estética na Vila Madalena</title>
+  <meta
+    name="description"
+    content="Clínica Carolina Baim (CRBM 59984) — Biomedicina Estética na Rua Purpurina, 514, Sumarezinho / Vila Madalena, SP. Protocolo Lavieen, preenchimento labial natural, toxina botulínica e cuidados dérmicos com nota 5,0 no Google."
+  />
+
+  <!-- Google Fonts: Cormorant Garamond (Quiet Luxury Display), Plus Jakarta Sans (M3 UI), Material Symbols Rounded -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,400,0..1,0&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="icon" type="image/png" href="assets/images/favicon.png" />
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+</head>
+<body>
+  <!-- =======================================================================
+       M3 Top App Bar
+       ======================================================================= -->
+  <header class="top-app-bar" id="top-app-bar">
+    <div class="container top-app-bar__inner">
+      <a href="#inicio" class="brand-lockup" aria-label="Clínica Carolina Baim - Início">
+        <div class="brand-monogram" aria-hidden="true">
+          <img src="assets/images/logo-mark.png" alt="Monograma Oficial CB" />
+        </div>
+        <div class="brand-text">
+          <span class="brand-text__title">Carolina Baim</span>
+          <span class="brand-text__sub">Biomedicina Estética</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" aria-label="Navegação principal">
+        <a class="nav-link" data-ripple href="#essencia">Essência</a>
+        <a class="nav-link" data-ripple href="#protocolos">Protocolos</a>
+        <a class="nav-link" data-ripple href="#resultados">Resultados</a>
+        <a class="nav-link" data-ripple href="#especialista">Dra. Carolina</a>
+        <a class="nav-link" data-ripple href="#equipe">Equipe</a>
+        <a class="nav-link" data-ripple href="#avaliacoes">Avaliações</a>
+        <a class="nav-link" data-ripple href="#localizacao">Localização</a>
+      </nav>
+
+      <div class="app-bar-actions">
+        <a
+          href="https://wa.me/5511996935563?text=Ol%C3%A1!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Carolina%20Baim."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="m3-icon-btn"
+          data-ripple
+          aria-label="Falar no WhatsApp"
+          title="Falar no WhatsApp"
+          style="color:var(--cb-whatsapp);border-color:var(--md-sys-color-secondary-container);background-color:var(--md-sys-color-secondary-container);"
+        >
+          <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+        </a>
+
+        <a
+          href="#agendamento"
+          class="m3-btn m3-btn--filled nav-cta-desktop"
+          data-ripple
+        >
+          <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">calendar_month</span>
+          <span>Agendar</span>
+        </a>
+
+        <button
+          type="button"
+          id="open-drawer-btn"
+          class="m3-icon-btn menu-toggle-btn"
+          data-ripple
+          aria-label="Abrir menu de navegação"
+        >
+          <span class="material-symbols-rounded" aria-hidden="true">menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile M3 Navigation Drawer -->
+  <div class="nav-drawer-backdrop" id="nav-drawer-backdrop"></div>
+  <aside class="nav-drawer" id="nav-drawer" aria-label="Menu móvel">
+    <div class="nav-drawer__header">
+      <div class="brand-text">
+        <span class="brand-text__title">Clínica Carolina Baim</span>
+        <span class="brand-text__sub">CRBM 59984</span>
+      </div>
+      <button type="button" id="close-drawer-btn" class="m3-icon-btn" aria-label="Fechar menu">
+        <span class="material-symbols-rounded" aria-hidden="true">close</span>
+      </button>
+    </div>
+    <nav class="nav-drawer__list">
+      <a class="nav-drawer__item" href="#essencia">
+        <span class="material-symbols-rounded" aria-hidden="true">spa</span>
+        <span>Nossa Essência</span>
+      </a>
+      <a class="nav-drawer__item" href="#protocolos">
+        <span class="material-symbols-rounded" aria-hidden="true">flare</span>
+        <span>Protocolos Assinados</span>
+      </a>
+      <a class="nav-drawer__item" href="#resultados">
+        <span class="material-symbols-rounded" aria-hidden="true">compare</span>
+        <span>Resultados (Antes & Depois)</span>
+      </a>
+      <a class="nav-drawer__item" href="#especialista">
+        <span class="material-symbols-rounded" aria-hidden="true">person</span>
+        <span>Dra. Carolina Baim</span>
+      </a>
+      <a class="nav-drawer__item" href="#equipe">
+        <span class="material-symbols-rounded" aria-hidden="true">diversity_1</span>
+        <span>Nossa Equipe</span>
+      </a>
+      <a class="nav-drawer__item" href="#avaliacoes">
+        <span class="material-symbols-rounded" aria-hidden="true">star</span>
+        <span>Avaliações 5,0 ★</span>
+      </a>
+      <a class="nav-drawer__item" href="#agendamento">
+        <span class="material-symbols-rounded" aria-hidden="true">calendar_month</span>
+        <span>Agendar Avaliação</span>
+      </a>
+      <a class="nav-drawer__item" href="#localizacao">
+        <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
+        <span>Endereço & Horários</span>
+      </a>
+    </nav>
+    <a
+      href="https://wa.me/5511996935563?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20na%20Cl%C3%ADnica%20Carolina%20Baim."
+      target="_blank"
+      rel="noopener noreferrer"
+      class="m3-btn m3-btn--whatsapp"
+      style="margin-top:auto;"
+      data-ripple
+    >
+      <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+      <span>Falar no WhatsApp</span>
+    </a>
+  </aside>
+
+  <main>
+    <!-- =====================================================================
+         Hero Section
+         ===================================================================== -->
+    <section class="hero" id="inicio">
+      <div class="container hero__grid">
+        <div>
+          <div class="hero__chip-row">
+            <a href="#avaliacoes" class="m3-assist-chip" data-ripple>
+              <span class="material-symbols-rounded filled star-badge" style="font-size:18px" aria-hidden="true">star</span>
+              <span><strong>5,0</strong> (42 avaliações no Google)</span>
+            </a>
+            <span class="m3-assist-chip">
+              <span class="status-dot" id="hero-status-dot" aria-hidden="true"></span>
+              <span id="hero-status-text">Ter–Sex: 09h–19h · Sáb: 09h–18h</span>
+            </span>
+          </div>
+
+          <h1 class="display-serif hero__title">
+            Naturalidade, equilíbrio e beleza <em>sem exageros.</em>
+          </h1>
+
+          <p class="hero__subtitle">
+            Um espaço de acolhimento e bem-estar na Vila Madalena dedicado à sua jornada de autoestima. Protocolos autorais de Biomedicina Estética com precisão clínica e toque humano pela <strong>Dra. Carolina Baim</strong>.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#agendamento" class="m3-btn m3-btn--filled" data-ripple>
+              <span class="material-symbols-rounded" style="font-size:20px" aria-hidden="true">calendar_today</span>
+              <span>Agendar minha avaliação</span>
+            </a>
+            <a href="#protocolos" class="m3-btn m3-btn--outlined" data-ripple>
+              <span class="material-symbols-rounded" style="font-size:20px" aria-hidden="true">auto_awesome</span>
+              <span>Explorar protocolos</span>
+            </a>
+          </div>
+
+          <div class="hero__meta-strip">
+            <div class="meta-pill">
+              <span class="material-symbols-rounded" aria-hidden="true">location_on</span>
+              <div>
+                <strong>Rua Purpurina, 514</strong>
+                <span>Sumarezinho · Vila Madalena</span>
+              </div>
+            </div>
+            <div class="meta-pill">
+              <span class="material-symbols-rounded" aria-hidden="true">verified_user</span>
+              <div>
+                <strong>CRBM 59984</strong>
+                <span>Biomédica Esteta</span>
+              </div>
+            </div>
+            <div class="meta-pill">
+              <span class="material-symbols-rounded" aria-hidden="true">favorite</span>
+              <div>
+                <strong>Atendimento Leve</strong>
+                <span>Conforto & segurança clínica</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="hero__frame">
+            <img
+              src="assets/images/hero-clinic.jpg"
+              alt="Recepção acolhedora da Clínica Carolina Baim com jardim vertical, marcenaria clara e poltrona rosé"
+            />
+          </div>
+          <div class="hero__floating-card">
+            <div class="hero__floating-card__left">
+              <div class="hero__floating-icon" aria-hidden="true">
+                <span class="material-symbols-rounded">flare</span>
+              </div>
+              <div>
+                <div class="hero__floating-title">Protocolo Lavieen & Injetáveis Naturais</div>
+                <div class="hero__floating-sub">Planejamento sob medida após avaliação presencial</div>
+              </div>
+            </div>
+            <a
+              href="https://wa.me/5511996935563?text=Ol%C3%A1!%20Gostaria%20de%20informac%C3%B5es%20sobre%20hor%C3%A1rios%20de%20avalia%C3%A7%C3%A3o."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="m3-btn m3-btn--tonal"
+              style="padding-inline:16px;white-space:nowrap;"
+              data-ripple
+            >
+              <span>WhatsApp</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Bento Grid — Os 4 Pilares (Apple + Material You Tonal Containers)
+         ===================================================================== -->
+    <section class="section section--tonal" id="essencia">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">spa</span>
+            Quiet Beauty · Experiência Carolina Baim
+          </span>
+          <h2 class="headline-lg">Estética com alma, técnica e respeito à sua identidade.</h2>
+          <p class="body-lead">
+            Cada detalhe do nosso consultório foi pensado para transformar procedimentos clínicos em momentos de pausa, escuta e confiança.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card bento-card--surface bento-card--wide" data-reveal>
+            <div class="bento-card__top">
+              <div class="bento-card__icon">
+                <span class="material-symbols-rounded filled" style="color:var(--cb-star)" aria-hidden="true">star</span>
+              </div>
+              <span class="bento-card__tag">Reputação Google · 42/42 cinco estrelas</span>
+            </div>
+            <div>
+              <h3 class="bento-card__title">5,0 ★ de satisfação real das nossas pacientes</h3>
+              <p class="bento-card__desc">
+                Nas avaliações públicas do Google Maps, nossas pacientes reforçam três pilares que guiam nosso trabalho todos os dias: mão leve com procedimentos praticamente indolores, equipe atenciosa e transparência de valor justo na região.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card bento-card--primary bento-card--narrow" data-reveal>
+            <div class="bento-card__top">
+              <div class="bento-card__icon">
+                <span class="material-symbols-rounded" aria-hidden="true">flare</span>
+              </div>
+              <span class="bento-card__tag">Tecnologia de Ponta</span>
+            </div>
+            <div>
+              <h3 class="bento-card__title">Laser Lavieen</h3>
+              <p class="bento-card__desc">
+                Renovação da textura, controle de melasma, poros refinados e brilho saudável com retorno rápido à sua rotina.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card bento-card--secondary bento-card--narrow" data-reveal>
+            <div class="bento-card__top">
+              <div class="bento-card__icon">
+                <span class="material-symbols-rounded" aria-hidden="true">eco</span>
+              </div>
+              <span class="bento-card__tag">Refúgio na Vila Madalena</span>
+            </div>
+            <div>
+              <h3 class="bento-card__title">Acolhimento & Leveza</h3>
+              <p class="bento-card__desc">
+                Luz natural, jardim vertical e ambiente asséptico e sereno — um espaço familiar tradicional há mais de 5 anos no endereço.
+              </p>
+            </div>
+          </article>
+
+          <article class="bento-card bento-card--tertiary bento-card--wide" data-reveal>
+            <div class="bento-card__top">
+              <div class="bento-card__icon">
+                <span class="material-symbols-rounded" aria-hidden="true">face_retouching_natural</span>
+              </div>
+              <span class="bento-card__tag">Filosofia Autoral</span>
+            </div>
+            <div>
+              <h3 class="bento-card__title">Resultados elegantes que preservam quem você é</h3>
+              <p class="bento-card__desc">
+                Em vez de padrões prontos, desenhamos protocolos combinados que suavizam marcas do tempo, hidratam lábios com delicadeza e fortalecem o colágeno — para que as pessoas notem o seu viço, nunca um excesso.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Protocolos Assinados (M3 Filter Chips + Interactive Cards + Dialog)
+         ===================================================================== -->
+    <section class="section" id="protocolos">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">medical_services</span>
+            Portfólio de Cuidados
+          </span>
+          <h2 class="headline-lg">Protocolos pensados para resultados reais.</h2>
+          <p class="body-lead">
+            Filtre por objetivo e clique em qualquer protocolo para conhecer indicações, conforto durante a sessão e agendar diretamente pelo WhatsApp.
+          </p>
+        </div>
+
+        <div class="chips-bar" id="protocol-chips" role="group" aria-label="Filtrar protocolos por categoria"></div>
+        <div class="protocols-grid" id="protocols-grid"></div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Resultados Reais — Antes & Depois (Casos Clínicos CRBM 59984)
+         ===================================================================== -->
+    <section class="section section--tonal" id="resultados">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">compare</span>
+            Casos Clínicos Reais · CRBM 59984
+          </span>
+          <h2 class="headline-lg">Transformações sutis que preservam sua essência.</h2>
+          <p class="body-lead">
+            Confira registros reais de antes e depois realizados na clínica. Filtre por procedimento ou clique sobre qualquer caso para ampliar e agendar sua avaliação.
+          </p>
+        </div>
+
+        <div class="chips-bar" id="result-chips" role="group" aria-label="Filtrar resultados por procedimento"></div>
+        <div class="results-grid" id="results-grid"></div>
+
+        <div class="results-disclaimer" data-reveal>
+          <span class="material-symbols-rounded" style="color:var(--md-sys-color-primary);flex-shrink:0;" aria-hidden="true">verified_user</span>
+          <span>
+            <strong>Nota Clínica:</strong> Fotografias reais de pacientes atendidos pela Dra. Carolina Baim (CRBM 59984), divulgadas mediante termo de autorização. Cada resultado é individual e varia conforme as características anatômicas de cada paciente.
+          </span>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Dra. Carolina Baim & M3 Segmented Tabs
+         ===================================================================== -->
+    <section class="section" id="especialista">
+      <div class="container specialist-grid">
+        <div class="specialist-portrait-wrap" data-reveal>
+          <img
+            src="assets/images/dra-carolina.jpg"
+            alt="Dra. Carolina Baim — Biomédica Esteta (CRBM 59984)"
+          />
+          <div class="crbm-pill">
+            <div>
+              <strong style="display:block;font-size:0.96rem;">Dra. Carolina Baim</strong>
+              <span style="font-size:0.8rem;color:var(--md-sys-color-on-surface-variant);">Biomédica Esteta · CRBM 59984</span>
+            </div>
+            <a
+              href="https://www.instagram.com/dra.carolinabaim/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="m3-btn m3-btn--tonal"
+              style="min-height:36px;padding:6px 14px;font-size:0.8rem;"
+              data-ripple
+            >
+              <span>@dra.carolinabaim</span>
+            </a>
+          </div>
+        </div>
+
+        <div data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">workspace_premium</span>
+            Responsável Técnica
+          </span>
+          <h2 class="headline-lg">Ciência biomédica guiada pela sensibilidade estética.</h2>
+          <p class="body-lead">
+            À frente da clínica na Rua Purpurina, a Dra. Carolina Baim une rigor anatômico e olhar artístico para entregar rejuvenescimento discreto, seguro e acolhedor para mulheres em todas as fases.
+          </p>
+
+          <div class="m3-segmented" role="tablist" aria-label="Detalhes sobre a especialista e a clínica">
+            <button
+              type="button"
+              class="m3-segmented__btn is-active"
+              role="tab"
+              aria-selected="true"
+              data-tab="filosofia"
+              data-ripple
+            >
+              <span>Filosofia</span>
+            </button>
+            <button
+              type="button"
+              class="m3-segmented__btn"
+              role="tab"
+              aria-selected="false"
+              data-tab="seguranca"
+              data-ripple
+            >
+              <span>Segurança Clínica</span>
+            </button>
+            <button
+              type="button"
+              class="m3-segmented__btn"
+              role="tab"
+              aria-selected="false"
+              data-tab="estrutura"
+              data-ripple
+            >
+              <span>Nosso Espaço</span>
+            </button>
+          </div>
+
+          <div class="tab-panel is-active" id="tab-filosofia" role="tabpanel">
+            <div class="tab-panel__card">
+              <strong style="font-size:1.05rem;">Beleza sem exageros, no seu ritmo</strong>
+              <ul class="check-list">
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
+                  <span>Escuta ativa antes de qualquer indicação, respeitando proporções e expressões faciais únicas.</span>
+                </li>
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
+                  <span>Planejamento em etapas: melhor qualidade de pele primeiro, volume apenas onde harmoniza.</span>
+                </li>
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">check_circle</span>
+                  <span>Acompanhamento próximo no pós-procedimento para total tranquilidade da paciente.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-seguranca" role="tabpanel">
+            <div class="tab-panel__card">
+              <strong style="font-size:1.05rem;">Rigor biomédico e materiais certificados</strong>
+              <ul class="check-list">
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">verified</span>
+                  <span>Registro ativo no Conselho Regional de Biomedicina (CRBM 59984) e certificações em estética avançada.</span>
+                </li>
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">verified</span>
+                  <span>Uso exclusivo de insumos com registro na ANVISA e rastreabilidade por lote.</span>
+                </li>
+                <li>
+                  <span class="material-symbols-rounded" aria-hidden="true">verified</span>
+                  <span>Protocolos de biossegurança rigorosos, bancadas assépticas e manejo confortável da dor.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="tab-panel" id="tab-estrutura" role="tabpanel">
+            <div class="tab-panel__card">
+              <strong style="font-size:1.05rem;">Consultório completo no coração do Sumarezinho</strong>
+              <p style="margin:8px 0 0;font-size:0.93rem;color:var(--md-sys-color-on-surface-variant);">
+                Salas equipadas com macas reclináveis confortáveis, tecnologia Lavieen e Ultrafocus, recepção iluminada com jardim vertical e sala de relaxamento com cromoterapia.
+              </p>
+              <div class="clinic-space-gallery">
+                <div class="clinic-space-thumb">
+                  <img
+                    src="assets/images/hero-clinic.jpg"
+                    alt="Consultório principal da Clínica Carolina Baim com parede CB e jardim vertical"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="clinic-space-thumb">
+                  <img
+                    src="assets/images/clinic-lounge.jpg"
+                    alt="Recepção e lounge da Clínica Carolina Baim com sofá rosé e plantas naturais"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="clinic-space-thumb">
+                  <img
+                    src="assets/images/clinic-relax.jpg"
+                    alt="Sala de relaxamento e cromoterapia da Clínica Carolina Baim"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Nossa Equipe (Fotos reais da clínica)
+         ===================================================================== -->
+    <section class="section" id="equipe">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">diversity_1</span>
+            Time Clínica Carolina Baim
+          </span>
+          <h2 class="headline-lg">Acolhimento humano em cada detalhe.</h2>
+          <p class="body-lead">
+            Uma equipe preparada, próxima e dedicada a tornar cada visita à Rua Purpurina leve, segura e inesquecível.
+          </p>
+        </div>
+
+        <article class="team-feature-card" data-reveal>
+          <div class="team-feature-card__media">
+            <img
+              src="assets/images/team-group.jpg"
+              alt="Equipe da Clínica Carolina Baim sorrindo unida na clínica"
+              loading="lazy"
+            />
+          </div>
+          <div class="team-feature-card__body">
+            <span class="eyebrow" style="margin-bottom:0;">
+              <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">favorite</span>
+              Cuidado Integrado
+            </span>
+            <h3 class="display-serif" style="font-size:clamp(1.6rem, 2.5vw, 2.1rem);">
+              Da recepção ao pós-procedimento, você nunca está sozinha.
+            </h3>
+            <p style="margin:0;color:var(--md-sys-color-on-surface-variant);font-size:0.95rem;">
+              O carinho e a sintonia da equipe são alguns dos pontos mais elogiados nas nossas avaliações 5 estrelas no Google. Cuidamos do seu horário, do seu conforto em sala e do acompanhamento contínuo em casa.
+            </p>
+            <div>
+              <a href="#agendamento" class="m3-btn m3-btn--tonal" data-ripple>
+                <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">calendar_month</span>
+                <span>Agendar atendimento com a equipe</span>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <div class="team-grid">
+          <article class="team-card" data-reveal>
+            <div class="team-card__media">
+              <img
+                src="assets/images/team-carolina.jpg"
+                alt="Dra. Carolina Baim em atendimento de avaliação"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__body">
+              <span class="team-card__role">Fundadora · CRBM 59984</span>
+              <h3 class="team-card__name">Dra. Carolina Baim</h3>
+              <p class="team-card__bio">
+                Biomédica Esteta responsável pelos protocolos autorais, laser Lavieen e harmonização facial com foco em naturalidade.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card" data-reveal>
+            <div class="team-card__media">
+              <img
+                src="assets/images/team-specialist.jpg"
+                alt="Especialista da Clínica Carolina Baim em avaliação facial"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__body">
+              <span class="team-card__role">Corpo Clínico & Estética</span>
+              <h3 class="team-card__name">Avaliação & Cuidados</h3>
+              <p class="team-card__bio">
+                Atendimento clínico minucioso e protocolos faciais personalizados para textura, viço e saúde da pele.
+              </p>
+            </div>
+          </article>
+
+          <article class="team-card" data-reveal>
+            <div class="team-card__media">
+              <img
+                src="assets/images/team-attendant.jpg"
+                alt="Equipe de relacionamento e acolhimento da Clínica Carolina Baim"
+                loading="lazy"
+              />
+            </div>
+            <div class="team-card__body">
+              <span class="team-card__role">Experiência do Paciente</span>
+              <h3 class="team-card__name">Recepção & Acolhimento</h3>
+              <p class="team-card__bio">
+                Organização de agenda, recepção calorosa e suporte ágil antes e depois da sua consulta.
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Jornada da Paciente (4 Etapas)
+         ===================================================================== -->
+    <section class="section section--tonal">
+      <div class="container">
+        <div class="section-header section-header--center" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">timeline</span>
+            Experiência do Início ao Pós
+          </span>
+          <h2 class="headline-lg">Como cuidamos de você em 4 passos</h2>
+        </div>
+
+        <div class="journey-grid">
+          <article class="journey-step" data-reveal>
+            <span class="journey-step__num">01</span>
+            <h3>Escuta & Diagnóstico</h3>
+            <p>Conversa tranquila sobre suas queixas, rotina de skincare e objetivos, analisando sua pele e anatomia sem pressa.</p>
+          </article>
+          <article class="journey-step" data-reveal>
+            <span class="journey-step__num">02</span>
+            <h3>Plano Sob Medida</h3>
+            <p>Apresentação transparente de opções, valores e expectativas reais — você decide cada etapa com segurança.</p>
+          </article>
+          <article class="journey-step" data-reveal>
+            <span class="journey-step__num">03</span>
+            <h3>Sessão Confortável</h3>
+            <p>Preparo anestésico cuidadoso e aplicação delicada em sala privativa, priorizando tranquilidade e conforto.</p>
+          </article>
+          <article class="journey-step" data-reveal>
+            <span class="journey-step__num">04</span>
+            <h3>Cuidado Contínuo</h3>
+            <p>Orientações claras de cuidados em casa e acompanhamento direto pelo WhatsApp após o procedimento.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Avaliações Reais no Google (5,0 estrelas · 42 avaliações)
+         ===================================================================== -->
+    <section class="section" id="avaliacoes">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">reviews</span>
+            Prova Social Verificada
+          </span>
+          <h2 class="headline-lg">O que nossas pacientes mais destacam.</h2>
+        </div>
+
+        <div class="reviews-summary" data-reveal>
+          <div class="rating-big">
+            <div class="rating-big__score">5,0</div>
+            <div>
+              <div class="testimonial-card__stars" style="margin-bottom:4px;">
+                <span class="material-symbols-rounded filled" aria-hidden="true">star</span>
+                <span class="material-symbols-rounded filled" aria-hidden="true">star</span>
+                <span class="material-symbols-rounded filled" aria-hidden="true">star</span>
+                <span class="material-symbols-rounded filled" aria-hidden="true">star</span>
+                <span class="material-symbols-rounded filled" aria-hidden="true">star</span>
+              </div>
+              <strong>42 avaliações 5 estrelas no Google Maps</strong>
+              <div style="font-size:0.84rem;color:var(--md-sys-color-on-surface-variant);">
+                Temas mais citados pelas pacientes atendidas
+              </div>
+            </div>
+          </div>
+
+          <div class="topic-chips" id="review-topics"></div>
+        </div>
+
+        <div class="testimonials-grid" id="testimonials-grid"></div>
+
+        <div style="margin-top:24px;display:flex;justify-content:center;">
+          <a
+            href="https://www.google.com/maps/place/Cl%C3%ADnica+Carolina+Baim/@-23.5548147,-46.6929933,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce57fee8dfcacd:0xebb77cfa92385bc1!8m2!3d-23.5548147!4d-46.6929933!16s%2Fg%2F11vsd42cqf?entry=ttu"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="m3-btn m3-btn--outlined"
+            data-ripple
+          >
+            <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">open_in_new</span>
+            <span>Ver avaliações no Google Maps</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Pré-Agendamento Interativo & FAQ (M3 Form + Expansion Panels)
+         ===================================================================== -->
+    <section class="section section--tonal" id="agendamento">
+      <div class="container booking-faq-grid">
+        <div class="booking-card" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">chat</span>
+            Agendamento Direto
+          </span>
+          <h2 class="headline-lg" style="font-size:clamp(1.8rem, 3vw, 2.4rem);">Reserve sua avaliação personalizada</h2>
+          <p class="body-lead" style="margin-bottom:24px;font-size:0.96rem;">
+            Preencha seus dados abaixo e já abra o WhatsApp oficial da clínica com a mensagem pronta para agilizar seu horário.
+          </p>
+
+          <form id="booking-form" novalidate>
+            <div class="m3-field">
+              <label for="patient-name">Seu nome</label>
+              <input
+                type="text"
+                id="patient-name"
+                class="m3-input"
+                placeholder="Ex.: Mariana Silva"
+                required
+              />
+            </div>
+
+            <div class="m3-field">
+              <label for="patient-interest">Qual protocolo ou objetivo mais te interessa?</label>
+              <select id="patient-interest" class="m3-select">
+                <option value="Avaliação Facial Completa">Avaliação Facial Completa (Indicação da Dra.)</option>
+                <option value="Protocolo Lavieen Glass Skin">Protocolo Lavieen Glass Skin (Laser)</option>
+                <option value="Preenchimento Labial Natural">Preenchimento Labial Natural</option>
+                <option value="Toxina Botulínica Personalizada">Toxina Botulínica Personalizada (Botox)</option>
+                <option value="Tratamento & Preenchimento de Olheiras">Tratamento & Preenchimento de Olheiras</option>
+                <option value="Protocolo Clareador & Melasma">Protocolo Clareador & Melasma</option>
+                <option value="Renovação de Textura & Cicatrizes de Acne">Renovação de Textura & Cicatrizes de Acne</option>
+                <option value="Bioestimuladores de Colágeno">Bioestimuladores de Colágeno</option>
+              </select>
+            </div>
+
+            <div class="m3-field">
+              <label>Preferência de período</label>
+              <div class="choice-pills" role="group" aria-label="Preferência de período">
+                <button type="button" class="choice-pill is-selected" data-period="Manhã (09h–12h)" data-ripple>Manhã (09h–12h)</button>
+                <button type="button" class="choice-pill" data-period="Tarde (13h–19h)" data-ripple>Tarde (13h–19h)</button>
+                <button type="button" class="choice-pill" data-period="Sábado (09h–18h)" data-ripple>Sábado (09h–18h)</button>
+              </div>
+            </div>
+
+            <div class="m3-field">
+              <label for="patient-notes">Observação opcional</label>
+              <textarea
+                id="patient-notes"
+                rows="2"
+                class="m3-textarea"
+                placeholder="Conte brevemente se já realizou algum procedimento ou se tem alguma dúvida."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="m3-btn m3-btn--whatsapp" style="width:100%;" data-ripple>
+              <span class="material-symbols-rounded" aria-hidden="true">send</span>
+              <span>Continuar para o WhatsApp (11) 99693-5563</span>
+            </button>
+          </form>
+        </div>
+
+        <div data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">help</span>
+            Perguntas Frequentes
+          </span>
+          <h2 class="headline-lg" style="font-size:clamp(1.8rem, 3vw, 2.4rem);">Dúvidas comuns antes da primeira visita</h2>
+          <div class="faq-list" id="faq-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         Localização & Horários
+         ===================================================================== -->
+    <section class="section" id="localizacao">
+      <div class="container">
+        <div class="section-header" data-reveal>
+          <span class="eyebrow">
+            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">location_on</span>
+            Como Chegar
+          </span>
+          <h2 class="headline-lg">Sumarezinho · Vila Madalena, São Paulo</h2>
+        </div>
+
+        <div class="location-grid">
+          <div class="location-card" data-reveal>
+            <div>
+              <h3 class="display-serif" style="font-size:1.75rem;margin-bottom:8px;">Clínica Carolina Baim</h3>
+              <p style="margin:0;color:var(--md-sys-color-on-surface-variant);">
+                Rua Purpurina, 514 — Sumarezinho<br />
+                Vila Madalena / Pinheiros, São Paulo - SP · CEP 05435-030
+              </p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;">
+                <button
+                  type="button"
+                  class="m3-btn m3-btn--tonal"
+                  data-copy="Rua Purpurina, 514 - Sumarezinho, São Paulo - SP, 05435-030"
+                  data-ripple
+                >
+                  <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">content_copy</span>
+                  <span>Copiar endereço</span>
+                </button>
+                <button
+                  type="button"
+                  class="m3-btn m3-btn--outlined"
+                  data-copy="(11) 99693-5563"
+                  data-ripple
+                >
+                  <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">call</span>
+                  <span>(11) 99693-5563</span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <h4 style="margin:0 0 10px;font-size:0.86rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--md-sys-color-on-surface-variant);">
+                Horário de Atendimento
+              </h4>
+              <ul class="hours-list" id="clinic-hours-list"></ul>
+            </div>
+
+            <a
+              href="https://www.google.com/maps/place/Cl%C3%ADnica+Carolina+Baim/@-23.5548147,-46.6929933,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce57fee8dfcacd:0xebb77cfa92385bc1!8m2!3d-23.5548147!4d-46.6929933!16s%2Fg%2F11vsd42cqf?entry=ttu"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="m3-btn m3-btn--filled"
+              data-ripple
+            >
+              <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">directions</span>
+              <span>Traçar rota no Google Maps</span>
+            </a>
+          </div>
+
+          <div class="map-frame" data-reveal>
+            <iframe
+              title="Mapa da Clínica Carolina Baim na Rua Purpurina, 514 - São Paulo"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Cl%C3%ADnica%20Carolina%20Baim%2C%20Rua%20Purpurina%2C%20514%20-%20Sumarezinho%2C%20S%C3%A3o%20Paulo&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =======================================================================
+       Footer
+       ======================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div style="margin-bottom:14px;">
+            <img
+              src="assets/images/logo-horizontal.png"
+              alt="Clínica Carolina Baim — Biomedicina Estética"
+              class="footer-logo-img"
+              loading="lazy"
+            />
+          </div>
+          <p style="margin:0;max-width:38ch;font-size:0.9rem;color:var(--md-sys-color-on-surface-variant);">
+            Naturalidade, equilíbrio e beleza sem exageros. Cuidados estéticos individualizados na Vila Madalena / Sumarezinho, São Paulo · CRBM 59984.
+          </p>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Navegação</h3>
+          <ul class="footer-links">
+            <li><a href="#essencia">Nossa Essência</a></li>
+            <li><a href="#protocolos">Protocolos Assinados</a></li>
+            <li><a href="#resultados">Resultados (Antes & Depois)</a></li>
+            <li><a href="#especialista">Dra. Carolina Baim</a></li>
+            <li><a href="#equipe">Nossa Equipe</a></li>
+            <li><a href="#avaliacoes">Avaliações 5,0 ★</a></li>
+            <li><a href="#agendamento">Agendamento</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 class="footer-title">Canais Oficiais</h3>
+          <ul class="footer-links">
+            <li>
+              <a
+                href="https://wa.me/5511996935563"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                WhatsApp: (11) 99693-5563
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.instagram.com/dra.carolinabaim/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Instagram: @dra.carolinabaim
+              </a>
+            </li>
+            <li>
+              <a
+                href="https://www.google.com/maps/place/Cl%C3%ADnica+Carolina+Baim/@-23.5548147,-46.6929933,17z/data=!3m1!4b1!4m6!3m5!1s0x94ce57fee8dfcacd:0xebb77cfa92385bc1!8m2!3d-23.5548147!4d-46.6929933!16s%2Fg%2F11vsd42cqf?entry=ttu"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                R. Purpurina, 514 — São Paulo, SP
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 Clínica Carolina Baim · Todos os direitos reservados.</span>
+        <span>Atendimento com hora marcada · Os resultados variam conforme avaliação clínica individual.</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =======================================================================
+       M3 Protocol Detail Modal Dialog
+       ======================================================================= -->
+  <div
+    class="m3-dialog-backdrop"
+    id="protocol-dialog-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="dialog-title"
+  >
+    <div class="m3-dialog">
+      <div class="m3-dialog__media">
+        <img id="dialog-img" src="" alt="" />
+        <button
+          type="button"
+          class="m3-dialog__close"
+          id="dialog-close-btn"
+          aria-label="Fechar detalhes do protocolo"
+        >
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <div class="m3-dialog__body">
+        <span class="protocol-card__eyebrow" id="dialog-eyebrow"></span>
+        <h3 class="headline-lg" id="dialog-title" style="font-size:2rem;margin-top:6px;"></h3>
+        <p id="dialog-approach" style="color:var(--md-sys-color-on-surface-variant);margin:0;"></p>
+
+        <div class="m3-dialog__stats">
+          <div class="m3-dialog__stat">
+            <small>Duração média</small>
+            <strong id="dialog-duration"></strong>
+          </div>
+          <div class="m3-dialog__stat">
+            <small>Recuperação</small>
+            <strong id="dialog-recovery"></strong>
+          </div>
+          <div class="m3-dialog__stat">
+            <small>Conforto</small>
+            <strong id="dialog-comfort"></strong>
+          </div>
+        </div>
+
+        <strong style="font-size:0.95rem;">Principais indicações:</strong>
+        <ul class="check-list" id="dialog-indications"></ul>
+
+        <div class="m3-dialog__actions">
+          <button
+            type="button"
+            class="m3-btn m3-btn--text"
+            onclick="document.getElementById('dialog-close-btn').click()"
+            data-ripple
+          >
+            Fechar
+          </button>
+          <a
+            id="dialog-whatsapp-btn"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="m3-btn m3-btn--whatsapp"
+            data-ripple
+          >
+            <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">chat</span>
+            <span>Agendar este protocolo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- M3 Extended FAB -->
+  <a
+    id="m3-fab"
+    class="m3-fab"
+    href="https://wa.me/5511996935563?text=Ol%C3%A1%2C%20Dra.%20Carolina!%20Gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o."
+    target="_blank"
+    rel="noopener noreferrer"
+    data-ripple
+    aria-label="Agendar pelo WhatsApp"
+  >
+    <span class="material-symbols-rounded" aria-hidden="true">chat</span>
+    <span class="m3-fab__label">Agendar WhatsApp</span>
+  </a>
+
+  <!-- M3 Snackbar -->
+  <div class="m3-snackbar" id="m3-snackbar" role="status" aria-live="polite">
+    <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">check_circle</span>
+    <span id="m3-snackbar-text"></span>
+  </div>
+
+  <script type="module" src="scripts/app.js"></script>
+</body>
+</html>
