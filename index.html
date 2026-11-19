@@ -320,44 +320,108 @@
     </section>
 
     <!-- =====================================================================
-         Protocolos Assinados (M3 Filter Chips + Interactive Cards + Dialog)
+         Protocolos Assinados (GTC-Inspired Editorial Carousel + M3 Chips)
          ===================================================================== -->
     <section class="section" id="protocolos">
       <div class="container">
-        <div class="section-header" data-reveal>
-          <span class="eyebrow">
-            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">medical_services</span>
-            Portfólio de Cuidados
-          </span>
-          <h2 class="headline-lg">Protocolos pensados para resultados reais.</h2>
-          <p class="body-lead">
-            Filtre por objetivo e clique em qualquer protocolo para conhecer indicações, conforto durante a sessão e agendar diretamente pelo WhatsApp.
-          </p>
+        <div class="carousel-header-row" data-reveal>
+          <div class="section-header" style="margin-bottom:0;">
+            <span class="eyebrow">
+              <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">medical_services</span>
+              Portfólio de Cuidados · Protocolos Assinados
+            </span>
+            <h2 class="headline-lg">Protocolos pensados para resultados reais.</h2>
+            <p class="body-lead">
+              Deslize pelo carrossel ou filtre por objetivo. Clique em qualquer protocolo para ver indicações, tempo de sessão e agendar.
+            </p>
+          </div>
+          <div class="carousel-nav-group" aria-label="Controles do carrossel de protocolos">
+            <span class="carousel-counter" id="protocols-counter">01 / 06</span>
+            <button
+              type="button"
+              class="m3-icon-btn carousel-nav-btn"
+              id="protocols-prev"
+              data-ripple
+              aria-label="Protocolo anterior"
+            >
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+            </button>
+            <button
+              type="button"
+              class="m3-icon-btn carousel-nav-btn"
+              id="protocols-next"
+              data-ripple
+              aria-label="Próximo protocolo"
+            >
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+            </button>
+          </div>
         </div>
 
         <div class="chips-bar" id="protocol-chips" role="group" aria-label="Filtrar protocolos por categoria"></div>
-        <div class="protocols-grid" id="protocols-grid"></div>
+
+        <div class="cb-carousel" aria-roledescription="carrossel" aria-label="Protocolos da Clínica Carolina Baim">
+          <div class="cb-carousel__track" id="protocols-grid"></div>
+          <div class="cb-carousel__footer">
+            <div class="cb-carousel__progress" aria-hidden="true">
+              <div class="cb-carousel__progress-bar" id="protocols-progress"></div>
+            </div>
+            <div class="cb-carousel__dots" id="protocols-dots" role="tablist" aria-label="Navegação por slides de protocolos"></div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- =====================================================================
-         Resultados Reais — Antes & Depois (Casos Clínicos CRBM 59984)
+         Resultados Reais — Antes & Depois (GTC-Inspired Editorial Carousel)
          ===================================================================== -->
     <section class="section section--tonal" id="resultados">
       <div class="container">
-        <div class="section-header" data-reveal>
-          <span class="eyebrow">
-            <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">compare</span>
-            Casos Clínicos Reais · CRBM 59984
-          </span>
-          <h2 class="headline-lg">Transformações sutis que preservam sua essência.</h2>
-          <p class="body-lead">
-            Confira registros reais de antes e depois realizados na clínica. Filtre por procedimento ou clique sobre qualquer caso para ampliar e agendar sua avaliação.
-          </p>
+        <div class="carousel-header-row" data-reveal>
+          <div class="section-header" style="margin-bottom:0;">
+            <span class="eyebrow">
+              <span class="material-symbols-rounded" style="font-size:16px" aria-hidden="true">compare</span>
+              Casos Clínicos Reais · CRBM 59984
+            </span>
+            <h2 class="headline-lg">Transformações sutis que preservam sua essência.</h2>
+            <p class="body-lead">
+              Navegue pelo carrossel de antes e depois realizados na clínica. Filtre por procedimento ou toque sobre qualquer caso para ampliar.
+            </p>
+          </div>
+          <div class="carousel-nav-group" aria-label="Controles do carrossel de resultados">
+            <span class="carousel-counter" id="results-counter">01 / 12</span>
+            <button
+              type="button"
+              class="m3-icon-btn carousel-nav-btn"
+              id="results-prev"
+              data-ripple
+              aria-label="Resultado anterior"
+            >
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_back</span>
+            </button>
+            <button
+              type="button"
+              class="m3-icon-btn carousel-nav-btn"
+              id="results-next"
+              data-ripple
+              aria-label="Próximo resultado"
+            >
+              <span class="material-symbols-rounded" aria-hidden="true">arrow_forward</span>
+            </button>
+          </div>
         </div>
 
         <div class="chips-bar" id="result-chips" role="group" aria-label="Filtrar resultados por procedimento"></div>
-        <div class="results-grid" id="results-grid"></div>
+
+        <div class="cb-carousel" aria-roledescription="carrossel" aria-label="Resultados Antes e Depois">
+          <div class="cb-carousel__track cb-carousel__track--results" id="results-grid"></div>
+          <div class="cb-carousel__footer">
+            <div class="cb-carousel__progress" aria-hidden="true">
+              <div class="cb-carousel__progress-bar" id="results-progress"></div>
+            </div>
+            <div class="cb-carousel__dots" id="results-dots" role="tablist" aria-label="Navegação por slides de resultados"></div>
+          </div>
+        </div>
 
         <div class="results-disclaimer" data-reveal>
           <span class="material-symbols-rounded" style="color:var(--md-sys-color-primary);flex-shrink:0;" aria-hidden="true">verified_user</span>

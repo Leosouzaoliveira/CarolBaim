@@ -118,7 +118,145 @@ function renderHoursAndStatus() {
 }
 
 /* ==========================================================================
-   M3 Filter Chips & Protocols Grid
+   GTC Clinic Inspired M3 Editorial Carousel Controller
+   ========================================================================== */
+const carouselControllers = {};
+
+function syncCarouselUI(prefix) {
+  const ctrl = carouselControllers[prefix];
+  if (!ctrl) return;
+  const { track, prevBtn, nextBtn, counterEl, progressEl, dotsEl } = ctrl;
+  const cards = Array.from(track.children);
+  const total = cards.length;
+  if (!total) return;
+
+  const firstCard = cards[0];
+  const step = firstCard ? firstCard.offsetWidth + 20 : 340;
+  const maxScroll = Math.max(0, track.scrollWidth - track.clientWidth);
+  const rawIdx = step > 0 ? Math.round(track.scrollLeft / step) : 0;
+  const activeIdx = Math.min(total - 1, Math.max(0, rawIdx));
+
+  const pad2 = (n) => String(n).padStart(2, '0');
+  if (counterEl) {
+    counterEl.textContent = `${pad2(activeIdx + 1)} / ${pad2(total)}`;
+  }
+
+  if (prevBtn) {
+    prevBtn.disabled = track.scrollLeft <= 6;
+  }
+  if (nextBtn) {
+    nextBtn.disabled = maxScroll <= 6 || track.scrollLeft >= maxScroll - 6;
+  }
+
+  if (progressEl) {
+    const ratio = maxScroll > 6 ? Math.min(1, Math.max(0, track.scrollLeft / maxScroll)) : 1;
+    const minW = Math.max(16, Math.round(100 / total));
+    const widthPct = minW + ratio * (100 - minW);
+    progressEl.style.width = `${widthPct}%`;
+  }
+
+  if (dotsEl) {
+    if (dotsEl.children.length !== total) {
+      dotsEl.innerHTML = cards
+        .map(
+          (_, i) => `
+          <button
+            type="button"
+            class="cb-carousel__dot ${i === activeIdx ? 'is-active' : ''}"
+            aria-label="Ir para o item ${i + 1}"
+            data-index="${i}"
+          ></button>`
+        )
+        .join('');
+      dotsEl.querySelectorAll('.cb-carousel__dot').forEach((dot) => {
+        dot.addEventListener('click', () => {
+          const idx = Number(dot.dataset.index);
+          const targetCard = cards[idx];
+          if (targetCard) {
+            track.scrollTo({ left: targetCard.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+          }
+        });
+      });
+    } else {
+      Array.from(dotsEl.children).forEach((dot, i) => {
+        dot.classList.toggle('is-active', i === activeIdx);
+      });
+    }
+  }
+}
+
+function initCarouselController(prefix, trackId) {
+  const track = document.getElementById(trackId);
+  if (!track) return;
+  const prevBtn = document.getElementById(`${prefix}-prev`);
+  const nextBtn = document.getElementById(`${prefix}-next`);
+  const counterEl = document.getElementById(`${prefix}-counter`);
+  const progressEl = document.getElementById(`${prefix}-progress`);
+  const dotsEl = document.getElementById(`${prefix}-dots`);
+
+  carouselControllers[prefix] = {
+    track,
+    prevBtn,
+    nextBtn,
+    counterEl,
+    progressEl,
+    dotsEl,
+    wasDragged: false,
+  };
+
+  const scrollByCard = (dir) => {
+    const first = track.children[0];
+    const step = first ? first.offsetWidth + 20 : 340;
+    track.scrollBy({ left: dir * step, behavior: 'smooth' });
+  };
+
+  prevBtn?.addEventListener('click', () => scrollByCard(-1));
+  nextBtn?.addEventListener('click', () => scrollByCard(1));
+
+  track.addEventListener('scroll', () => syncCarouselUI(prefix), { passive: true });
+  window.addEventListener('resize', () => syncCarouselUI(prefix), { passive: true });
+
+  // Desktop mouse drag-to-scroll support
+  let isDown = false;
+  let startX = 0;
+  let startScrollLeft = 0;
+
+  track.addEventListener('pointerdown', (e) => {
+    if (e.pointerType !== 'mouse' || e.button !== 0) return;
+    isDown = true;
+    carouselControllers[prefix].wasDragged = false;
+    startX = e.pageX;
+    startScrollLeft = track.scrollLeft;
+    track.style.scrollSnapType = 'none';
+    track.style.scrollBehavior = 'auto';
+  });
+
+  window.addEventListener('pointermove', (e) => {
+    if (!isDown) return;
+    const dx = e.pageX - startX;
+    if (Math.abs(dx) > 8) {
+      carouselControllers[prefix].wasDragged = true;
+    }
+    track.scrollLeft = startScrollLeft - dx;
+  });
+
+  window.addEventListener('pointerup', () => {
+    if (!isDown) return;
+    isDown = false;
+    track.style.scrollSnapType = 'x mandatory';
+    track.style.scrollBehavior = 'smooth';
+    setTimeout(() => {
+      if (carouselControllers[prefix]) {
+        carouselControllers[prefix].wasDragged = false;
+      }
+    }, 60);
+  });
+
+  syncCarouselUI(prefix);
+}
+
+/* ==========================================================================
+   M3 Filter Chips & Protocols Carousel
    ========================================================================== */
 let activeCategory = 'all';
 
@@ -200,7 +338,10 @@ function renderProtocolsGrid() {
     .join('');
 
   grid.querySelectorAll('.protocol-card').forEach((card) => {
-    const open = () => openProtocolDialog(card.dataset.protocolId);
+    const open = () => {
+      if (carouselControllers.protocols?.wasDragged) return;
+      openProtocolDialog(card.dataset.protocolId);
+    };
     card.addEventListener('click', open);
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
@@ -209,6 +350,11 @@ function renderProtocolsGrid() {
       }
     });
   });
+
+  grid.scrollTo({ left: 0, behavior: 'smooth' });
+  const dotsEl = document.getElementById('protocols-dots');
+  if (dotsEl) dotsEl.innerHTML = '';
+  requestAnimationFrame(() => syncCarouselUI('protocols'));
 }
 
 /* ==========================================================================
@@ -333,6 +479,7 @@ function renderResultsGrid() {
 
   grid.querySelectorAll('.result-card').forEach((card) => {
     const open = () => {
+      if (carouselControllers.results?.wasDragged) return;
       const item = BEFORE_AFTER_RESULTS.find((r) => r.id === card.dataset.resultId);
       if (!item) return;
       const mappedId = protocolMap[item.category] || 'labios-naturais';
@@ -351,6 +498,11 @@ function renderResultsGrid() {
       }
     });
   });
+
+  grid.scrollTo({ left: 0, behavior: 'smooth' });
+  const dotsEl = document.getElementById('results-dots');
+  if (dotsEl) dotsEl.innerHTML = '';
+  requestAnimationFrame(() => syncCarouselUI('results'));
 }
 
 /* ==========================================================================
@@ -608,6 +760,8 @@ function initDialogListeners() {
 document.addEventListener('DOMContentLoaded', () => {
   attachRipples();
   renderHoursAndStatus();
+  initCarouselController('protocols', 'protocols-grid');
+  initCarouselController('results', 'results-grid');
   renderFilterChips();
   renderProtocolsGrid();
   renderResultChips();
