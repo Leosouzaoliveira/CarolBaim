@@ -8,3 +8,5 @@ desktop.ini
 # Temporary / local files
 *.log
 *.tmp
+.netlify/
+
