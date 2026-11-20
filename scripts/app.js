@@ -748,7 +748,9 @@ function initCopyButtons() {
 function initDialogListeners() {
   const backdrop = document.getElementById('protocol-dialog-backdrop');
   const closeBtn = document.getElementById('dialog-close-btn');
+  const cancelBtn = document.getElementById('dialog-cancel-btn');
   closeBtn?.addEventListener('click', closeProtocolDialog);
+  cancelBtn?.addEventListener('click', closeProtocolDialog);
   backdrop?.addEventListener('click', (e) => {
     if (e.target === backdrop) closeProtocolDialog();
   });
