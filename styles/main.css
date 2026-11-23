@@ -746,8 +746,8 @@ textarea {
 .chips-bar {
   display: flex;
   flex-wrap: nowrap;
-  gap: 8px;
-  margin-bottom: 24px;
+  gap: 10px;
+  margin-bottom: 26px;
   overflow-x: auto;
   scroll-snap-type: x proximity;
   scroll-behavior: smooth;
@@ -763,28 +763,23 @@ textarea {
   display: none;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   .chips-bar {
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 32px;
-    overflow-x: visible;
     margin-inline: 0;
     padding-inline: 0;
-    padding-block: 0;
   }
 }
 
 .m3-filter-chip {
   flex: 0 0 auto;
   white-space: nowrap;
-  scroll-snap-align: start;
+  scroll-snap-align: center;
   display: inline-flex;
   align-items: center;
   gap: 8px;
   min-height: 38px;
   padding: 7px 16px;
-  border-radius: var(--md-sys-shape-corner-small);
+  border-radius: var(--md-sys-shape-corner-full);
   border: 1px solid var(--md-sys-color-outline-variant);
   background-color: var(--md-sys-color-surface-container-lowest);
   color: var(--md-sys-color-on-surface-variant);

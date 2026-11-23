@@ -75,7 +75,7 @@ export const PROTOCOLS = [
     duration: '45 min',
     recovery: 'Leve edema por 48h',
     comfort: 'Bloqueio confortável · Mínima dor',
-    image: 'assets/images/results/labios-3.jpg',
+    image: 'assets/images/protocol-facial.jpg',
     icon: 'favorite',
     tone: 'secondary',
     indications: [
@@ -123,7 +123,7 @@ export const PROTOCOLS = [
     duration: '40 min',
     recovery: 'Retorno no mesmo dia',
     comfort: 'Microcânula atraumática e segura',
-    image: 'assets/images/results/olheiras-1.jpg',
+    image: 'assets/images/clinic-consultation.jpg',
     icon: 'visibility',
     tone: 'primary',
     indications: [
@@ -171,7 +171,7 @@ export const PROTOCOLS = [
     duration: '50 min',
     recovery: 'Retorno rápido',
     comfort: 'Anestesia local integrada',
-    image: 'assets/images/protocol-facial.jpg',
+    image: 'assets/images/dra-carolina-coat.jpg',
     icon: 'auto_awesome',
     tone: 'tertiary',
     indications: [
