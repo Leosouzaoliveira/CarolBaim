@@ -283,7 +283,13 @@ function renderFilterChips() {
   container.querySelectorAll('.m3-filter-chip').forEach((btn) => {
     btn.addEventListener('click', () => {
       activeCategory = btn.dataset.category;
-      renderFilterChips();
+      container.querySelectorAll('.m3-filter-chip').forEach((chip) => {
+        const isSelected = chip.dataset.category === activeCategory;
+        chip.classList.toggle('is-selected', isSelected);
+        chip.setAttribute('aria-pressed', String(isSelected));
+      });
+      const targetLeft = btn.offsetLeft - container.clientWidth / 2 + btn.offsetWidth / 2;
+      container.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
       renderProtocolsGrid();
     });
   });
@@ -429,7 +435,13 @@ function renderResultChips() {
   container.querySelectorAll('.m3-filter-chip').forEach((btn) => {
     btn.addEventListener('click', () => {
       activeResultCategory = btn.dataset.resCategory;
-      renderResultChips();
+      container.querySelectorAll('.m3-filter-chip').forEach((chip) => {
+        const isSelected = chip.dataset.resCategory === activeResultCategory;
+        chip.classList.toggle('is-selected', isSelected);
+        chip.setAttribute('aria-pressed', String(isSelected));
+      });
+      const targetLeft = btn.offsetLeft - container.clientWidth / 2 + btn.offsetWidth / 2;
+      container.scrollTo({ left: Math.max(0, targetLeft), behavior: 'smooth' });
       renderResultsGrid();
     });
   });

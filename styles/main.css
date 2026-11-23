@@ -745,12 +745,40 @@ textarea {
    ========================================================================== */
 .chips-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-bottom: 32px;
+  flex-wrap: nowrap;
+  gap: 8px;
+  margin-bottom: 24px;
+  overflow-x: auto;
+  scroll-snap-type: x proximity;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  margin-inline: calc(var(--cb-gutter) * -1);
+  padding-inline: var(--cb-gutter);
+  padding-block: 2px 6px;
+}
+
+.chips-bar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .chips-bar {
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 32px;
+    overflow-x: visible;
+    margin-inline: 0;
+    padding-inline: 0;
+    padding-block: 0;
+  }
 }
 
 .m3-filter-chip {
+  flex: 0 0 auto;
+  white-space: nowrap;
+  scroll-snap-align: start;
   display: inline-flex;
   align-items: center;
   gap: 8px;
