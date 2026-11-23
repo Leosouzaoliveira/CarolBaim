@@ -318,6 +318,15 @@ function renderProtocolsGrid() {
         <div class="protocol-card__media">
           <img src="${protocol.image}" alt="${protocol.title} na Clínica Carolina Baim" loading="lazy" />
           <span class="protocol-card__badge">${protocol.badge}</span>
+          <button
+            type="button"
+            class="card-zoom-btn"
+            data-zoom-protocol="${protocol.id}"
+            aria-label="Ampliar foto de ${protocol.title} em alta resolução"
+            title="Ver imagem inteira em alta resolução"
+          >
+            <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">zoom_in</span>
+          </button>
         </div>
         <div class="protocol-card__body">
           <span class="protocol-card__eyebrow">${protocol.eyebrow}</span>
@@ -344,7 +353,24 @@ function renderProtocolsGrid() {
     .join('');
 
   grid.querySelectorAll('.protocol-card').forEach((card) => {
-    const open = () => {
+    const zoomBtn = card.querySelector('.card-zoom-btn');
+    zoomBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (carouselControllers.protocols?.wasDragged) return;
+      const protocol = PROTOCOLS.find((p) => p.id === card.dataset.protocolId);
+      if (!protocol) return;
+      openImageLightbox({
+        image: protocol.image,
+        badge: protocol.eyebrow,
+        title: protocol.title,
+        subtitle: `${protocol.duration} · Recuperação: ${protocol.recovery}`,
+        protocolId: protocol.id,
+        whatsappText: protocol.whatsappText,
+      });
+    });
+
+    const open = (e) => {
+      if (e?.target?.closest('.card-zoom-btn')) return;
       if (carouselControllers.protocols?.wasDragged) return;
       openProtocolDialog(card.dataset.protocolId);
     };
@@ -352,7 +378,7 @@ function renderProtocolsGrid() {
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        open();
+        open(e);
       }
     });
   });
@@ -366,11 +392,15 @@ function renderProtocolsGrid() {
 /* ==========================================================================
    M3 Modal Dialog for Protocol Details
    ========================================================================== */
+let activeDialogProtocolId = null;
+let activeLightboxProtocolId = null;
+
 function openProtocolDialog(protocolId) {
   const protocol = PROTOCOLS.find((p) => p.id === protocolId);
   const backdrop = document.getElementById('protocol-dialog-backdrop');
   if (!protocol || !backdrop) return;
 
+  activeDialogProtocolId = protocol.id;
   document.getElementById('dialog-img').src = protocol.image;
   document.getElementById('dialog-img').alt = protocol.title;
   document.getElementById('dialog-eyebrow').textContent = protocol.eyebrow;
@@ -405,6 +435,35 @@ function closeProtocolDialog() {
   if (!backdrop) return;
   backdrop.classList.remove('is-open');
   document.body.style.overflow = '';
+}
+
+function openImageLightbox({ image, badge, title, subtitle, protocolId, whatsappText }) {
+  const backdrop = document.getElementById('lightbox-backdrop');
+  if (!backdrop) return;
+
+  activeLightboxProtocolId = protocolId || null;
+  const imgEl = document.getElementById('lightbox-img');
+  imgEl.src = image;
+  imgEl.alt = title;
+  document.getElementById('lightbox-badge').textContent = badge || 'VISUALIZAÇÃO EM ALTA';
+  document.getElementById('lightbox-title').textContent = title || '';
+  document.getElementById('lightbox-sub').textContent = subtitle || '';
+  document.getElementById('lightbox-whatsapp-btn').href = buildWhatsAppUrl(
+    whatsappText || `Olá! Gostaria de saber mais sobre ${title}.`
+  );
+
+  backdrop.classList.add('is-open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('lightbox-close-btn').focus();
+}
+
+function closeImageLightbox() {
+  const backdrop = document.getElementById('lightbox-backdrop');
+  if (!backdrop) return;
+  backdrop.classList.remove('is-open');
+  if (!document.getElementById('protocol-dialog-backdrop')?.classList.contains('is-open')) {
+    document.body.style.overflow = '';
+  }
 }
 
 /* ==========================================================================
@@ -476,13 +535,23 @@ function renderResultsGrid() {
         <div class="result-card__media">
           <img src="${item.image}" alt="Antes e depois: ${item.title} - Dra. Carolina Baim" loading="lazy" />
           <span class="protocol-card__badge">${item.badge}</span>
-          <span class="result-card__zoom" aria-hidden="true">
-            <span class="material-symbols-rounded" style="font-size:18px">zoom_in</span>
-          </span>
+          <button
+            type="button"
+            class="result-card__zoom"
+            data-zoom-result="${item.id}"
+            aria-label="Ampliar imagem de ${item.title} em alta resolução"
+            title="Ver imagem inteira em alta resolução"
+          >
+            <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">zoom_in</span>
+          </button>
         </div>
         <div class="result-card__body">
           <h3 class="result-card__title">${item.title}</h3>
           <p class="result-card__sub">${item.subtitle}</p>
+          <div class="protocol-card__footer" style="margin-top:6px;">
+            <span>Ver sobre o procedimento</span>
+            <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">arrow_forward</span>
+          </div>
         </div>
       </article>
     `
@@ -490,23 +559,34 @@ function renderResultsGrid() {
     .join('');
 
   grid.querySelectorAll('.result-card').forEach((card) => {
-    const open = () => {
-      if (carouselControllers.results?.wasDragged) return;
-      const item = BEFORE_AFTER_RESULTS.find((r) => r.id === card.dataset.resultId);
-      if (!item) return;
-      const mappedId = protocolMap[item.category] || 'labios-naturais';
+    const item = BEFORE_AFTER_RESULTS.find((r) => r.id === card.dataset.resultId);
+    const mappedId = item ? protocolMap[item.category] || 'labios-naturais' : 'labios-naturais';
+    const mappedProtocol = PROTOCOLS.find((p) => p.id === mappedId);
+
+    const zoomBtn = card.querySelector('.result-card__zoom');
+    zoomBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      if (carouselControllers.results?.wasDragged || !item) return;
+      openImageLightbox({
+        image: item.image,
+        badge: `ANTES & DEPOIS · ${item.badge.toUpperCase()}`,
+        title: item.title,
+        subtitle: item.subtitle,
+        protocolId: mappedId,
+        whatsappText: mappedProtocol?.whatsappText,
+      });
+    });
+
+    const openDetails = (e) => {
+      if (e?.target?.closest('.result-card__zoom')) return;
+      if (carouselControllers.results?.wasDragged || !item) return;
       openProtocolDialog(mappedId);
-      const dialogImg = document.getElementById('dialog-img');
-      if (dialogImg) {
-        dialogImg.src = item.image;
-        dialogImg.alt = `${item.title} — ${item.subtitle}`;
-      }
     };
-    card.addEventListener('click', open);
+    card.addEventListener('click', openDetails);
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        open();
+        openDetails(e);
       }
     });
   });
@@ -761,13 +841,53 @@ function initDialogListeners() {
   const backdrop = document.getElementById('protocol-dialog-backdrop');
   const closeBtn = document.getElementById('dialog-close-btn');
   const cancelBtn = document.getElementById('dialog-cancel-btn');
+  const dialogZoomBtn = document.getElementById('dialog-zoom-btn');
+  const dialogImg = document.getElementById('dialog-img');
+
   closeBtn?.addEventListener('click', closeProtocolDialog);
   cancelBtn?.addEventListener('click', closeProtocolDialog);
   backdrop?.addEventListener('click', (e) => {
     if (e.target === backdrop) closeProtocolDialog();
   });
+
+  const zoomFromDialog = () => {
+    const protocol = PROTOCOLS.find((p) => p.id === activeDialogProtocolId);
+    if (!protocol) return;
+    openImageLightbox({
+      image: dialogImg?.src || protocol.image,
+      badge: protocol.eyebrow,
+      title: protocol.title,
+      subtitle: `${protocol.duration} · Recuperação: ${protocol.recovery}`,
+      protocolId: protocol.id,
+      whatsappText: protocol.whatsappText,
+    });
+  };
+  dialogZoomBtn?.addEventListener('click', zoomFromDialog);
+  dialogImg?.addEventListener('click', zoomFromDialog);
+
+  // Lightbox listeners
+  const lbBackdrop = document.getElementById('lightbox-backdrop');
+  const lbCloseBtn = document.getElementById('lightbox-close-btn');
+  const lbDetailsBtn = document.getElementById('lightbox-details-btn');
+
+  lbCloseBtn?.addEventListener('click', closeImageLightbox);
+  lbBackdrop?.addEventListener('click', (e) => {
+    if (e.target === lbBackdrop) closeImageLightbox();
+  });
+  lbDetailsBtn?.addEventListener('click', () => {
+    const targetId = activeLightboxProtocolId || 'lavieen-glass-skin';
+    closeImageLightbox();
+    openProtocolDialog(targetId);
+  });
+
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeProtocolDialog();
+    if (e.key === 'Escape') {
+      if (lbBackdrop?.classList.contains('is-open')) {
+        closeImageLightbox();
+      } else {
+        closeProtocolDialog();
+      }
+    }
   });
 }
 

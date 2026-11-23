@@ -1022,6 +1022,15 @@
         <img id="dialog-img" src="" alt="" />
         <button
           type="button"
+          class="m3-dialog__zoom"
+          id="dialog-zoom-btn"
+          aria-label="Ampliar imagem em tela cheia"
+          title="Ampliar imagem em alta resolução"
+        >
+          <span class="material-symbols-rounded" aria-hidden="true">zoom_in</span>
+        </button>
+        <button
+          type="button"
           class="m3-dialog__close"
           id="dialog-close-btn"
           aria-label="Fechar detalhes do protocolo"
@@ -1073,6 +1082,61 @@
             <span>Agendar este protocolo</span>
           </a>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =======================================================================
+       M3 Full-Resolution Image Zoom Lightbox
+       ======================================================================= -->
+  <div
+    class="m3-lightbox-backdrop"
+    id="lightbox-backdrop"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="lightbox-title"
+  >
+    <div class="m3-lightbox">
+      <div class="m3-lightbox__header">
+        <div>
+          <span class="protocol-card__eyebrow" id="lightbox-badge"></span>
+          <h3 class="m3-lightbox__title" id="lightbox-title"></h3>
+          <p class="m3-lightbox__sub" id="lightbox-sub"></p>
+        </div>
+        <button
+          type="button"
+          class="m3-dialog__close"
+          id="lightbox-close-btn"
+          aria-label="Fechar visualização ampliada"
+          style="position:static;flex-shrink:0;"
+        >
+          <span class="material-symbols-rounded" aria-hidden="true">close</span>
+        </button>
+      </div>
+      <div class="m3-lightbox__stage">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+      <div class="m3-lightbox__footer">
+        <button
+          type="button"
+          class="m3-btn m3-btn--tonal"
+          id="lightbox-details-btn"
+          data-ripple
+        >
+          <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">info</span>
+          <span>Sobre o procedimento</span>
+        </button>
+        <a
+          id="lightbox-whatsapp-btn"
+          href="#"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="m3-btn m3-btn--whatsapp"
+          data-ripple
+        >
+          <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">chat</span>
+          <span>Agendar no WhatsApp</span>
+        </a>
       </div>
     </div>
   </div>
