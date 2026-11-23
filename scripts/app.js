@@ -318,15 +318,6 @@ function renderProtocolsGrid() {
         <div class="protocol-card__media">
           <img src="${protocol.image}" alt="${protocol.title} na Clínica Carolina Baim" loading="lazy" />
           <span class="protocol-card__badge">${protocol.badge}</span>
-          <button
-            type="button"
-            class="card-zoom-btn"
-            data-zoom-protocol="${protocol.id}"
-            aria-label="Ampliar foto de ${protocol.title} em alta resolução"
-            title="Ver imagem inteira em alta resolução"
-          >
-            <span class="material-symbols-rounded" style="font-size:18px" aria-hidden="true">zoom_in</span>
-          </button>
         </div>
         <div class="protocol-card__body">
           <span class="protocol-card__eyebrow">${protocol.eyebrow}</span>
@@ -353,24 +344,7 @@ function renderProtocolsGrid() {
     .join('');
 
   grid.querySelectorAll('.protocol-card').forEach((card) => {
-    const zoomBtn = card.querySelector('.card-zoom-btn');
-    zoomBtn?.addEventListener('click', (e) => {
-      e.stopPropagation();
-      if (carouselControllers.protocols?.wasDragged) return;
-      const protocol = PROTOCOLS.find((p) => p.id === card.dataset.protocolId);
-      if (!protocol) return;
-      openImageLightbox({
-        image: protocol.image,
-        badge: protocol.eyebrow,
-        title: protocol.title,
-        subtitle: `${protocol.duration} · Recuperação: ${protocol.recovery}`,
-        protocolId: protocol.id,
-        whatsappText: protocol.whatsappText,
-      });
-    });
-
-    const open = (e) => {
-      if (e?.target?.closest('.card-zoom-btn')) return;
+    const open = () => {
       if (carouselControllers.protocols?.wasDragged) return;
       openProtocolDialog(card.dataset.protocolId);
     };
@@ -378,7 +352,7 @@ function renderProtocolsGrid() {
     card.addEventListener('keydown', (e) => {
       if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
-        open(e);
+        open();
       }
     });
   });
@@ -394,15 +368,17 @@ function renderProtocolsGrid() {
    ========================================================================== */
 let activeDialogProtocolId = null;
 let activeLightboxProtocolId = null;
+let activeLightboxImage = null;
+let activeLightboxAlt = null;
 
-function openProtocolDialog(protocolId) {
+function openProtocolDialog(protocolId, customImage = null, customAlt = null) {
   const protocol = PROTOCOLS.find((p) => p.id === protocolId);
   const backdrop = document.getElementById('protocol-dialog-backdrop');
   if (!protocol || !backdrop) return;
 
   activeDialogProtocolId = protocol.id;
-  document.getElementById('dialog-img').src = protocol.image;
-  document.getElementById('dialog-img').alt = protocol.title;
+  document.getElementById('dialog-img').src = customImage || protocol.image;
+  document.getElementById('dialog-img').alt = customAlt || protocol.title;
   document.getElementById('dialog-eyebrow').textContent = protocol.eyebrow;
   document.getElementById('dialog-title').textContent = protocol.title;
   document.getElementById('dialog-approach').textContent = protocol.approach;
@@ -442,6 +418,8 @@ function openImageLightbox({ image, badge, title, subtitle, protocolId, whatsapp
   if (!backdrop) return;
 
   activeLightboxProtocolId = protocolId || null;
+  activeLightboxImage = image || null;
+  activeLightboxAlt = title ? `${title} — ${subtitle || ''}` : null;
   const imgEl = document.getElementById('lightbox-img');
   imgEl.src = image;
   imgEl.alt = title;
@@ -580,7 +558,7 @@ function renderResultsGrid() {
     const openDetails = (e) => {
       if (e?.target?.closest('.result-card__zoom')) return;
       if (carouselControllers.results?.wasDragged || !item) return;
-      openProtocolDialog(mappedId);
+      openProtocolDialog(mappedId, item.image, `${item.title} — ${item.subtitle}`);
     };
     card.addEventListener('click', openDetails);
     card.addEventListener('keydown', (e) => {
@@ -876,8 +854,10 @@ function initDialogListeners() {
   });
   lbDetailsBtn?.addEventListener('click', () => {
     const targetId = activeLightboxProtocolId || 'lavieen-glass-skin';
+    const imgToKeep = activeLightboxImage;
+    const altToKeep = activeLightboxAlt;
     closeImageLightbox();
-    openProtocolDialog(targetId);
+    openProtocolDialog(targetId, imgToKeep, altToKeep);
   });
 
   document.addEventListener('keydown', (e) => {
